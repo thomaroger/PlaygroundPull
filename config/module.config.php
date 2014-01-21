@@ -54,7 +54,7 @@ return array(
                                     ),
                                 ),
                             ),
-                            'edit' => array(
+                            'remove' => array(
                                 'type' => 'Segment',
                                 'options' => array(
                                     'route' => '/remove[/:questionId]',
