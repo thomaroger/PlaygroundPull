@@ -11,7 +11,13 @@ use Zend\ServiceManager\ServiceManager;
 class Question extends ProvidesEventsForm
 {
 
+    /**
+    * @var $serviceManager : Service Manager
+    */
     protected $serviceManager;
+     /**
+    * @var $questionService : Service de question
+    */
     protected $questionService;
 
     public function __construct ($name = null, ServiceManager $sm, Translator $translator)
@@ -97,11 +103,17 @@ class Question extends ProvidesEventsForm
 
     }
 
+
     public function getQuestionStatuses()
     {
         return $this->getQuestionService()->getStatuses();
     }
 
+    /**
+      * Retrieve service question instance
+     *
+     * @return QuestionService
+     */
     public function getQuestionService()
     {
         if (null === $this->questionService) {
@@ -111,6 +123,12 @@ class Question extends ProvidesEventsForm
         return $this->questionService;
     }
 
+    /**
+     * Set service question instance
+     *
+     * @param  QuestionService $questionService
+     * @return Question
+     */
     public function setQuestionService($questionService)
     {
         $this->questionService = $questionService;
@@ -133,7 +151,7 @@ class Question extends ProvidesEventsForm
      * Set service manager instance
      *
      * @param  ServiceManager $serviceManager
-     * @return User
+     * @return Question
      */
     public function setServiceManager (ServiceManager $serviceManager)
     {

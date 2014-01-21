@@ -20,7 +20,7 @@ class Question
     protected $er;
 
     /**
-     * @var \PlaygroundGallery\Options\ModuleOptions
+     * @var \PlaygroundPull\Options\ModuleOptions
      */
     protected $options;
 
@@ -28,7 +28,7 @@ class Question
     /**
     * __construct
     * @param Doctrine\ORM\EntityManager $em
-    * @param PlaygroundGallery\Options\ModuleOptions $options
+    * @param PlaygroundPull\Options\ModuleOptions $options
     *
     */
     public function __construct(EntityManager $em, ModuleOptions $options)
@@ -41,7 +41,7 @@ class Question
     * findById : recupere l'entite en fonction de son id
     * @param int $id id de la company
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Question $question
     */
     public function findById($id)
     {
@@ -52,14 +52,18 @@ class Question
     * findBy : recupere des entites en fonction de filtre
     * @param array $array tableau de filtre
     *
-    * @return collection $galleries collection de Citoren\Entity\Category
+    * @return collection $galleries collection de PlaygroundPull\Entity\Question
     */
     public function findBy($array)
     {
         return $this->getEntityRepository()->findBy($array);
     }
 
-
+    /**
+    * findCurrentPull : recuperer le question utilisé par le sondage en cour
+    *
+    * @return PlaygroundPull\Entity\Question $question
+    */
     public function findCurrentPull()
     {
         $currentDate = new \DateTime('NOW');
@@ -82,10 +86,10 @@ class Question
     }
 
     /**
-    * insert : insert en base une entité category
-    * @param PlaygroundGallery\Entity\Category $category category
+    * insert : insert en base une entité question
+    * @param PlaygroundPull\Entity\Question $question question
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Question $question
     */
     public function insert($entity)
     {
@@ -93,10 +97,10 @@ class Question
     }
 
     /**
-    * insert : met a jour en base une entité category
-    * @param PlaygroundGallery\Entity\Category $category category
+    * insert : met a jour en base une entité question
+    * @param PlaygroundPull\Entity\Question $question question
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Question $question
     */
     public function update($entity)
     {
@@ -105,9 +109,9 @@ class Question
 
     /**
     * insert : met a jour en base une entité company et persiste en base
-    * @param PlaygroundGallery\Entity\Category $entity category
+    * @param PlaygroundPull\Entity\Question $entity question
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Question $question
     */
     protected function persist($entity)
     {
@@ -120,7 +124,7 @@ class Question
     /**
     * findAll : recupere toutes les entites
     *
-    * @return collection $category collection de PlaygroundGallery\Entity\Category
+    * @return collection $question collection de PlaygroundPull\Entity\Question
     */
     public function findAll()
     {
@@ -128,8 +132,8 @@ class Question
     }
 
      /**
-    * remove : supprimer une entite category
-    * @param PlaygroundGallery\Entity\Category $category Category
+    * remove : supprimer une entite question
+    * @param PlaygroundPull\Entity\Question $question Question
     *
     */
     public function remove($entity)
@@ -139,9 +143,9 @@ class Question
     }
 
     /**
-    * getEntityRepository : recupere l'entite category
+    * getEntityRepository : recupere l'entite question
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Question $question
     */
     public function getEntityRepository()
     {

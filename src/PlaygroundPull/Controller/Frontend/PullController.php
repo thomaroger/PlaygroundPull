@@ -8,9 +8,16 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class PullController extends AbstractActionController
 {
-    
+    /**
+    * @var $answerService : Service des reponse
+    */
     protected $answerService;
 
+    /**
+    * postAction : permet de poster une reponse pour un sondage
+    *
+    * @return Reponse
+    */
     public function postAction()
     {        
         $return = array();
@@ -35,6 +42,11 @@ class PullController extends AbstractActionController
         return $response;
     }
 
+    /**
+    * getAnswerService : permet de recuperer le service de reponse
+    *
+    * @return answerService
+    */
     public function getAnswerService()
     {
         if (null === $this->answerService) {
