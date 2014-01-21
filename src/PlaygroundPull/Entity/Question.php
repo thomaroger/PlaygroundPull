@@ -75,7 +75,7 @@ class Question implements InputFilterAwareInterface
 
     /**
      * @param int $id
-     * @return Headline
+     * @return Question
      */
     public function setId($id)
     {
@@ -93,8 +93,8 @@ class Question implements InputFilterAwareInterface
     } 
 
     /**
-     * @param string $title
-     * @return Headline
+     * @param string $question
+     * @return Question
      */
     public function setQuestion($question)
     {
@@ -104,7 +104,7 @@ class Question implements InputFilterAwareInterface
     }
 
     /**
-     * @return string $title
+     * @return string $question
      */
     public function getQuestion()
     {
@@ -113,7 +113,7 @@ class Question implements InputFilterAwareInterface
 
     /**
      * @param boolean $active
-     * @return Headline
+     * @return Question
      */
     public function setActive($active)
     {
@@ -141,6 +141,7 @@ class Question implements InputFilterAwareInterface
 
     /**
      * @param datetime $beginDate
+    * @return Question
      */
     public function setBeginDate($beginDate)
     {
@@ -159,6 +160,7 @@ class Question implements InputFilterAwareInterface
 
     /**
      * @param datetime $beginDate
+     * @return Question
      */
     public function setEndedDate($endedDate)
     {
@@ -183,7 +185,7 @@ class Question implements InputFilterAwareInterface
 
 
     /**
-     * @return the unknown_type
+     * @return datetime $created_at
      */
     public function getCreatedAt()
     {
@@ -191,7 +193,8 @@ class Question implements InputFilterAwareInterface
     }
 
     /**
-     * @param unknown_type $created_at
+     * @param datetime $created_at
+     * @return Question
      */
     public function setCreatedAt($created_at)
     {
@@ -201,13 +204,29 @@ class Question implements InputFilterAwareInterface
     }
 
     /**
-     * @return the unknown_type
+     * @return datetime $updated_at
      */
     public function getUpdatedAt()
     {
         return $this->updated_at;
     }
 
+    /**
+     * @param datetime $updated_at
+     * @return Question
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+    * isCurrent : Permet de savoir si la question est utilisé dans un sondage en cours
+    *
+    * return boolean $return 
+    */
     public function isCurrent()
     {
         if ($this->getActive() == false) {
@@ -223,19 +242,8 @@ class Question implements InputFilterAwareInterface
     }
 
     /**
-     * @param unknown_type $updated_at
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
-
-    /**
-     * @param string $medias
-     * @return Category
+     * @param array $answers
+     * @return Question
      */
     public function setAnswers($answers)
     {
@@ -244,6 +252,10 @@ class Question implements InputFilterAwareInterface
         return $this;
     }
 
+    /**
+     * @param Answers $answers
+     * @return Question
+     */
     public function addAnswer($answer)
     {
         $this->answers[] = $answer;
@@ -252,13 +264,16 @@ class Question implements InputFilterAwareInterface
     }
 
     /**
-     * @return string $media
+     * @return string $answers
      */
     public function getAnswers()
     {
         return $this->answers;
     }
 
+    /**
+     * @return Question
+     */
     public function removeAnswers(){
         $this->answers = new ArrayCollection();
 

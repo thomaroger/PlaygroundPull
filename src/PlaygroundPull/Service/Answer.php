@@ -1,5 +1,4 @@
 <?php
-
 namespace PlaygroundPull\Service;
 
 use PlaygroundPull\Entity\Answer as AnswerEntity;
@@ -10,7 +9,7 @@ class Answer implements ServiceManagerAwareInterface
 {
 
     /**
-     * @var contactMapper
+     * @var answerMapper
      */
     protected $answerMapper;
 
@@ -20,11 +19,11 @@ class Answer implements ServiceManagerAwareInterface
     protected $serviceManager;
 
     /**
-     * @var UserServiceOptionsInterface
-     */
-    protected $options;
-
-
+    * create 
+    * @param array $data 
+    * 
+    * @return Entity/Answer $answer 
+    */
     public function create($data)
     {
         
@@ -50,9 +49,9 @@ class Answer implements ServiceManagerAwareInterface
     }
 
     /**
-     * getContactMapper
+     * getAnswerMapper
      *
-     * @return ContactMapper
+     * @return answerMapper
      */
     public function getAnswerMapper()
     {
@@ -64,10 +63,10 @@ class Answer implements ServiceManagerAwareInterface
     }
 
     /**
-     * setCompanyMapper
-     * @param  ContactMapper $companyMapper
+     * setAnswerMapper
+     * @param  AnswerMapper $answerMapper
      *
-     * @return Citroen\Entity\Contact Contact
+     * @return Service/Answer
      */
     public function setAnswerMapper($answerMapper)
     {

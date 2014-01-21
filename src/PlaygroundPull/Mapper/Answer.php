@@ -20,7 +20,7 @@ class Answer
     protected $er;
 
     /**
-     * @var \PlaygroundGallery\Options\ModuleOptions
+     * @var \PlaygroundPull\Options\ModuleOptions
      */
     protected $options;
 
@@ -28,7 +28,7 @@ class Answer
     /**
     * __construct
     * @param Doctrine\ORM\EntityManager $em
-    * @param PlaygroundGallery\Options\ModuleOptions $options
+    * @param PlaygroundPull\Options\ModuleOptions $options
     *
     */
     public function __construct(EntityManager $em, ModuleOptions $options)
@@ -41,7 +41,7 @@ class Answer
     * findById : recupere l'entite en fonction de son id
     * @param int $id id de la company
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Answer $answer
     */
     public function findById($id)
     {
@@ -52,7 +52,7 @@ class Answer
     * findBy : recupere des entites en fonction de filtre
     * @param array $array tableau de filtre
     *
-    * @return collection $galleries collection de Citoren\Entity\Category
+    * @return collection $galleries collection de PlaygroundPull\Entity\Answer
     */
     public function findBy($array)
     {
@@ -60,10 +60,10 @@ class Answer
     }
 
     /**
-    * insert : insert en base une entité category
-    * @param PlaygroundGallery\Entity\Category $category category
+    * insert : insert en base une entité answer
+    * @param PlaygroundPull\Entity\Answer $answer answer
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Answer $answer
     */
     public function insert($entity)
     {
@@ -71,10 +71,10 @@ class Answer
     }
 
     /**
-    * insert : met a jour en base une entité category
-    * @param PlaygroundGallery\Entity\Category $category category
+    * insert : met a jour en base une entité answer
+    * @param PlaygroundPull\Entity\Answer $answer answer
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Answer $answer
     */
     public function update($entity)
     {
@@ -83,9 +83,9 @@ class Answer
 
     /**
     * insert : met a jour en base une entité company et persiste en base
-    * @param PlaygroundGallery\Entity\Category $entity category
+    * @param PlaygroundPull\Entity\Answer $entity answer
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Answer $answer
     */
     protected function persist($entity)
     {
@@ -98,7 +98,7 @@ class Answer
     /**
     * findAll : recupere toutes les entites
     *
-    * @return collection $category collection de PlaygroundGallery\Entity\Category
+    * @return collection $answer collection de PlaygroundPull\Entity\Answer
     */
     public function findAll()
     {
@@ -106,8 +106,8 @@ class Answer
     }
 
      /**
-    * remove : supprimer une entite category
-    * @param PlaygroundGallery\Entity\Category $category Category
+    * remove : supprimer une entite answer
+    * @param PlaygroundPull\Entity\Answer $answer Answer
     *
     */
     public function remove($entity)
@@ -117,9 +117,9 @@ class Answer
     }
 
     /**
-    * getEntityRepository : recupere l'entite category
+    * getEntityRepository : recupere l'entite answer
     *
-    * @return PlaygroundGallery\Entity\Category $category
+    * @return PlaygroundPull\Entity\Answer $answer
     */
     public function getEntityRepository()
     {

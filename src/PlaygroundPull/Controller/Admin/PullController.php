@@ -1,6 +1,4 @@
 <?php
-
-
 namespace PlaygroundPull\Controller\Admin;
 
 use Zend\View\Model\ViewModel;
@@ -8,12 +6,28 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class PullController extends AbstractActionController
 {
-    
+    /**
+    * @var $questionService : Service des questions
+    */
     protected $questionService;
+    /**
+    * @var $answerService : Service des reponses
+    */
     protected $answerService;
+    /**
+    * @var $questionForm : Form des questions
+    */
     protected $questionForm;
+    /**
+    * @var $formAnswer : Form des reponses
+    */
     protected $formAnswer;
 
+    /**
+    * listAction : permet de lister les sondages en cours
+    *
+    * @return ViewModel
+    */
     public function listAction()
     {        
         
@@ -23,6 +37,11 @@ class PullController extends AbstractActionController
         return $viewModel->setVariables(array('pulls' => $pulls));
     }
 
+    /**
+    * addAction : permet d'ajouter un sondage
+    *
+    * @return ViewModel
+    */
     public function addAction()
     {
         $form = $this->getQuestionForm();
@@ -53,6 +72,11 @@ class PullController extends AbstractActionController
                                               'flashMessages' => $this->flashMessenger()->getMessages()));
     }
 
+    /**
+    * editAction : permet d'editer un sondage
+    *
+    * @return ViewModel
+    */
     public function editAction()
     {
         $questionId = $this->getEvent()->getRouteMatch()->getParam('questionId');
@@ -109,9 +133,13 @@ class PullController extends AbstractActionController
                                               'flashMessages' => $this->flashMessenger()->getMessages()));
     }
 
+    /**
+    * removeAction : permet de supprimer un sondage
+    *
+    * @return Response
+    */
     public function removeAction()
     {
-        $currentDate = new \DateTime('NOW');
 
         $questionId = $this->getEvent()->getRouteMatch()->getParam('questionId');
         $question = $this->getQuestionService()->getQuestionMapper()->findById($questionId); 
@@ -142,7 +170,11 @@ class PullController extends AbstractActionController
     }
 
 
-
+    /**
+    * getQuestionService : permet de recuperer le service de questions
+    *
+    * @return questionService
+    */
     public function getQuestionService()
     {
         if (null === $this->questionService) {
@@ -152,6 +184,11 @@ class PullController extends AbstractActionController
         return $this->questionService;
     }
 
+    /**
+    * getAnswerService : permet de recuperer le service de reponse
+    *
+    * @return answerService
+    */
     public function getAnswerService()
     {
         if (null === $this->answerService) {
@@ -161,6 +198,11 @@ class PullController extends AbstractActionController
         return $this->answerService;
     }
 
+    /**
+    * getQuestionForm : permet de recuperer le form de question
+    *
+    * @return questionForm
+    */
     public function getQuestionForm()
     {
         if($this->questionForm === null){
@@ -170,6 +212,11 @@ class PullController extends AbstractActionController
         return $this->questionForm;
     }
 
+    /**
+    * getAnswerForm : permet de recuperer le form de reponse
+    *
+    * @return formAnswer
+    */
     public function getAnswerForm()
     {
         if($this->formAnswer === null){

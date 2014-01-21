@@ -59,7 +59,7 @@ class Answer implements InputFilterAwareInterface
 
     /**
      * @param int $id
-     * @return Headline
+     * @return Answer
      */
     public function setId($id)
     {
@@ -77,8 +77,8 @@ class Answer implements InputFilterAwareInterface
     } 
 
     /**
-     * @param string $title
-     * @return Headline
+     * @param string $answer
+     * @return Answer
      */
     public function setAnswer($answer)
     {
@@ -88,7 +88,7 @@ class Answer implements InputFilterAwareInterface
     }
 
     /**
-     * @return string $title
+     * @return string $answer
      */
     public function getAnswer()
     {
@@ -96,8 +96,8 @@ class Answer implements InputFilterAwareInterface
     }  
 
      /**
-     * @param string $category
-     * @return Media
+     * @param string $question
+     * @return Answer
      */
     public function setQuestion($question)
     {
@@ -107,7 +107,7 @@ class Answer implements InputFilterAwareInterface
     }
 
     /**
-     * @return string $category
+     * @return string $question
      */
     public function getQuestion()
     {
@@ -117,8 +117,8 @@ class Answer implements InputFilterAwareInterface
 
 
     /**
-     * @param string $title
-     * @return Headline
+     * @param integer $count
+     * @return Answer
      */
     public function setCount($count)
     {
@@ -128,7 +128,7 @@ class Answer implements InputFilterAwareInterface
     }
 
     /**
-     * @return string $title
+     * @return integer $count
      */
     public function getCount()
     {
@@ -150,7 +150,7 @@ class Answer implements InputFilterAwareInterface
 
 
     /**
-     * @return the unknown_type
+     * @return datetime $created_at
      */
     public function getCreatedAt()
     {
@@ -158,7 +158,8 @@ class Answer implements InputFilterAwareInterface
     }
 
     /**
-     * @param unknown_type $created_at
+     * @param datetime $created_at
+     * @return Answer
      */
     public function setCreatedAt($created_at)
     {
@@ -168,7 +169,7 @@ class Answer implements InputFilterAwareInterface
     }
 
     /**
-     * @return the unknown_type
+     * @return datetime $updated_at
      */
     public function getUpdatedAt()
     {
@@ -176,7 +177,8 @@ class Answer implements InputFilterAwareInterface
     }
 
     /**
-     * @param unknown_type $updated_at
+     * @param datetime $updated_at
+     * @return Answer
      */
     public function setUpdatedAt($updated_at)
     {

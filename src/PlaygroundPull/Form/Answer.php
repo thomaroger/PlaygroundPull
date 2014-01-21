@@ -11,7 +11,13 @@ use Zend\ServiceManager\ServiceManager;
 class Answer extends ProvidesEventsForm
 {
 
+    /**
+    * @var $serviceManager : Service Manager
+    */
     protected $serviceManager;
+     /**
+    * @var $questionService : Service de question
+    */
     protected $questionService;
 
     public function __construct ($name = null, ServiceManager $sm, Translator $translator)

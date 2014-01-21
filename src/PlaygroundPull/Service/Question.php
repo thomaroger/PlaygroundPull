@@ -11,15 +11,25 @@ use Zend\ServiceManager\ServiceManager;
 class Question implements ServiceManagerAwareInterface
 {
 
+    /**
+     * @var PULL_INACTIVE
+     */
     const PULL_INACTIVE = 0;
+    
+    /**
+     * @var PULL_ACTIVE
+     */
+    
     const PULL_ACTIVE = 1;
-
+    /**
+    * @var $statuses : Tableau de statut
+    */
     public static $statuses = array(
         self::PULL_INACTIVE => 'inactive',
         self::PULL_ACTIVE => 'active');
 
     /**
-     * @var contactMapper
+     * @var questionMapper
      */
     protected $questionMapper;
 
@@ -29,10 +39,11 @@ class Question implements ServiceManagerAwareInterface
     protected $serviceManager;
 
     /**
-     * @var UserServiceOptionsInterface
-     */
-    protected $options;
-
+    * create 
+    * @param array $data 
+    * 
+    * @return Entity/Question $question 
+    */
     public function create($data)
     {
         $question = new QuestionEntity();
@@ -62,6 +73,13 @@ class Question implements ServiceManagerAwareInterface
         return $question;
     }
 
+    /**
+    * update 
+    * @param Entity/Question $question 
+    * @param array $data 
+    * 
+    * @return Entity/Question $question 
+    */
     public function update($question, $data)
     {
 
@@ -89,16 +107,21 @@ class Question implements ServiceManagerAwareInterface
 
         return $question;
     }
-   
+    
+    /**
+    * getStatuses 
+    * 
+    * @return Array $statuses 
+    */
     public function getStatuses()
     {
         return self::$statuses;
     }
 
     /**
-     * getContactMapper
+     * getQuestionMapper
      *
-     * @return ContactMapper
+     * @return questionMapper
      */
     public function getQuestionMapper()
     {
@@ -110,10 +133,10 @@ class Question implements ServiceManagerAwareInterface
     }
 
     /**
-     * setCompanyMapper
-     * @param  ContactMapper $companyMapper
+     * setQuestionMapper
+     * @param  QuestionMapper $questionMapper
      *
-     * @return Citroen\Entity\Contact Contact
+     * @return Service/Question
      */
     public function setQuestionMapper($questionMapper)
     {
